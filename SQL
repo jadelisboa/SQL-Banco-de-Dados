@@ -1,0 +1,87 @@
+Banco de dados
+início:
+fichas - folhas
+arquivos sequencial - um abaixo do outro digital
+arquivos direto - índice para identificação
+
+Banco de dados anos 60:
+base de dados
+sistema gerenciador (SGBD)
+linguagem de exploração
+programas adicionais
+
+IBM 
+dados hierárquico
+modelo de rede
+
+decada 70
+modelo relacional
+
+SEQUEL
+=
+SQL
+
+
+select * from Alunos -order by- Nome -desc-
+
+order by - ordem alfabética
+
+desc - ordem alfabética inversa
+
+(ex)
+select * from Alunos order by cidade, Sexo, Data_Nascimento, Nome desc 
+ 
+Where - Onde?
+
+(ex)
+select Nome, Sexo, Cidade 
+from Alunos 
+where Cidade = 'Americana' 
+order by Sexo, Nome
+
+Query - Consultas
+
+Crud - Inserir, filtrar / selecionar, delete, atualizar,
+
+Delete
+(ex)
+select * from Cursos
+delete from Cursos  
+
+Deletar com condição
+(ex)
+select * from Cursos
+delete from Cursos
+where Número_Semestre = '4'
+
+Like
+(ex)
+Nome -like- 'Ana%' 
+sobrenome - '%Souza'
+Nome inteiro- '%Gustavo%'
+
+O % diz que ainda pode existir um 
+2º nome ou um sobrenome
+
+podendo ser uzado antes, depois ou antes e depois.
+antes como segundo nome 
+depois como sobrenome
+e antes e depois para nomes inteiros
+
+(ex com data)
+
+select *
+from Alunos
+where Data_Nascimento like '%-08-%'
+order by Data_Nascimento 
+
+Between 
+(ex)
+
+select * from Alunos
+where Nome between 'A' and 'H'
+order by Nome
+
+conceito: 
+selecionar valores dentro de um dado intervalo, 
+incluindo os limites inicial e final especificados.
