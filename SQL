@@ -85,3 +85,86 @@ order by Nome
 conceito: 
 selecionar valores dentro de um dado intervalo, 
 incluindo os limites inicial e final especificados.
+
+1) Selecionar clientes com idade maior que 25 e que são do 
+estado de SP
+
+select *
+from Clientes
+where Idade > 25 and Estado = 'SP
+
+2) Selecionar clientes com idade menor que 30 ou que 
+possuem CNH do tipo 'B'
+
+select *
+from Clientes
+where Idade < 30 and Tipo_CNH = 'B'
+
+3) Todas as pessoas que tem "Maria" no nome em qualquer 
+posição e que tenham idade entre 30 e 40 anos
+
+select *
+from Clientes
+where Nome like '%Maria%' and Idade >=30 and Idade <=40
+
+ou 
+
+select *
+from Clientes
+where Nome like '%Maria%' and Idade between 30 and 40
+
+4) Filtrar clientes de SP, sexo F, e CNH diferente de B
+
+select *
+from Clientes
+where Sexo = 'F' and Estado = 'SP' and Tipo_CNH <> 'B'
+
+5) Nomes que começam com G.H.I...M e que tenham entre 
+25 e 35 anos
+
+select *
+from Clientes
+where Nome between 'G' and 'N' and Idade between '25' and '35'
+order by Nome
+
+6) Nomes que tenham "Ana" em qualquer parte do nome e 
+morem em SP
+
+select *
+from Clientes
+where Nome like '%Ana%' and Estado = 'SP'
+
+7) Quantidade de carros por cores. Lista em ordem 
+alfabética.
+
+select Cor, count(Cor)
+from Carros
+group by Cor
+order by count(Cor)
+
+INNER JOIN
+
+inner join Carros on Vendas.CodCarro = Carros.CÓDIGO
+
+
+VENDAS.CODCARRO
+1º TABELA
+2º COLUNA
+
+RELACIONANDO TABELAS.
+UM INNER JOIN PODE FICAR EM BAIXO DE OUTROS
+
+inner join Carros on Vendas.CodCarro = Carros.CÓDIGO
+inner join Combustivel on Combustivel.CÓDIGO = Carros.CodCombustivel
+
+select Vendas.Data,Vendas.Vendedor, Carros.Nome, Carros.Montadora, Carros.Ano_Fabricacao
+
+O QUE VOCE QUER MOSTRAR SEGUNDO A TABELA INSERIDA.
+
+1) Mostre os carros, cor, ano e combustivel de um
+vendedor x
+
+select  Vendas.Vendedor, Carros.Nome, Carros.Cor, Carros.Ano_Fabricacao, Carros.CodCombustivel
+from Carros
+inner join Vendas on Carros.CÓDIGO = Carros.CodCombustivel
+where Vendedor = 'João Silveira Neto' 
